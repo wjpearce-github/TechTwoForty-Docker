@@ -1,0 +1,9 @@
+# The "before" from Phase 2, kept here so you can compare it with Dockerfile.
+# Full python:3.12 image, build tools and all, running as root. Over 1 GB.
+# Build it with: docker build -t myapi:naive -f Dockerfile.naive .
+FROM python:3.12
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+CMD ["python", "app.py"]
